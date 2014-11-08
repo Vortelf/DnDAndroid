@@ -5,11 +5,11 @@ public class Cleric extends Classes{
 	public Cleric(AbilityModifiers AM, String[] SkillArr) {
 		super(AM);
 		ClericSkills = new Skill[] {
-				new Skill("History"),
-				new Skill("Insight"),
-				new Skill("Medicine"),
-				new Skill("Persuasion"),
-				new Skill("Religion"),
+			new Skill("History"),
+			new Skill("Insight"),
+			new Skill("Medicine"),
+			new Skill("Persuasion"),
+			new Skill("Religion")
 		};
 		MainSkillCount = 2;
 		HitDice = new Dice(8);

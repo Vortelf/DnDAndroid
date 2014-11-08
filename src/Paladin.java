@@ -4,7 +4,6 @@ public class Paladin extends Classes {
 	
 	public Paladin(AbilityModifiers AM, String[] SkillArr) {
 		super(AM);
-		
 		PaladinSkills = new Skill[] {
 			new Skill("Athletics"),
 			new Skill("Insight"),
@@ -16,6 +15,7 @@ public class Paladin extends Classes {
 		MainSkillCount = 2;
 		HitDice = new Dice(10);
 		HitPoints = HitDice.getDice_type() + AM.CONMod;
+		PrimaryStatus = "STR";
 		this.initSavingThrows();
 		this.MainThrow("WIS", true);
 		this.MainThrow("CHA", true);

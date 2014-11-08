@@ -1,20 +1,3 @@
-//import java.lang.reflect.Field;
-//
-//void getSkillName(String WhichSkill) {
-//	Field[] Skills = this.getClass().getFields();
-//	String[] S = new String[Skills.length];
-//	String[] temp = new String[]{};
-//	System.out.println("Fiead 1 Skill Class " + Skills[1]);
-//	for(int i = 0; i < Skills.length; i++) {
-//		S[i] = Skills[i].toString();
-//		temp = S[i].split(" ");
-//		temp = temp[temp.length - 1].split("Skill.");
-//		//S[i] = temp[temp.length];
-//		System.out.println(temp[temp.length - 1]);
-////		S[i] = S[i].split(".");
-//	}
-//}
-
 
 public class Skill {
 	public String SkillName;
@@ -46,70 +29,6 @@ public class Skill {
 		System.out.println("MainSkill ->" + this.SkillName);
 	}
 
-//		public int Acrobatics; 
-//		public int AnimalHandling;
-//		public int Arcana;
-//		public int Athletics;
-//		public int Deception;
-//		public int History;
-//		public int Insight;
-//		public int Intimidation;
-//		public int Investigation;
-//		public int Medicine;
-//		public int Nature;
-//		public int Perception;
-//		public int Performance;
-//		public int Persuasion;
-//		public int Religion;
-//		public int SleightOfHand;
-//		public int Stealth;
-//		public int Survival;
-//
-//		public Skill(int STR, int DEX, int CON, int INT, int WIS, int CHA) {
-//			this.Acrobatics = DEX; 
-//			this.AnimalHandling = WIS;
-//			this.Arcana = INT;
-//			this.Athletics = STR;
-//			this.Deception = CHA;
-//			this.History = INT;
-//			this.Insight = WIS;
-//			this.Intimidation = CHA;
-//			this.Investigation = INT;
-//			this.Medicine = WIS;
-//			this.Nature = INT;
-//			this.Perception = WIS;
-//			this.Performance = CHA;
-//			this.Persuasion = CHA;
-//			this.Religion = INT;
-//			this.SleightOfHand = DEX;
-//			this.Stealth = DEX;
-//			this.Survival = WIS;
-//		}
-		
-		
-
-		
-//		void setMainSkills(String[] S, int ProfBonus) {
-//			for(int i = 0; i < S.length; i++)
-//			switch(S[i]){	
-//				case "Acrobatics" : this.Acrobatics += ProfBonus; break;
-//				case "AnimalHandling" : this.Acrobatics += ProfBonus; break;
-//				case "Arcana" : this.Acrobatics += ProfBonus; break;
-//				case "Athletics" : this.Acrobatics += ProfBonus; break;
-//				case "Deception" : this.Acrobatics += ProfBonus; break;
-//				case "History" : this.Acrobatics += ProfBonus; break;
-//				case "Insight" : this.Acrobatics += ProfBonus; break;
-//				case "Intimidation" : this.Acrobatics += ProfBonus; break;
-//				case "Investigation" : this.Acrobatics += ProfBonus; break;
-//				case "Medicine" : this.Acrobatics += ProfBonus; break;
-//				case "Nature" : this.Acrobatics += ProfBonus; break;
-//				case "Perception" : this.Acrobatics += ProfBonus; break;
-//				case "Performance" : this.Acrobatics += ProfBonus; break;
-//				case "Persuasion" : this.Acrobatics += ProfBonus; break;
-//				case "Religion" : this.Acrobatics += ProfBonus; break;
-//				case "SleightOfHand" : this.Acrobatics += ProfBonus; break;
-//				case "Stealth" : this.Acrobatics += ProfBonus; break;
-//				case "Survival" : this.Acrobatics += ProfBonus; break;
-//			}
-//		}
+	
+	
 }

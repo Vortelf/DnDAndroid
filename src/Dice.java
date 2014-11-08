@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 //import java.util.Random;
 
 
@@ -28,6 +30,19 @@
 			else if (this.Dice_type == 100)
 				return (int)  (Math.random()*Dice_type / 10) * 10;
 			else return (int) (Math.random()*Dice_type + 1);
+		}
+
+		public int RollForStatus() {
+			Dice Normal = new Dice();
+			int[] rollKeeper = new int[] {
+					Normal.rollDice(),
+					Normal.rollDice(),
+					Normal.rollDice(),
+					Normal.rollDice()
+			};
+			Arrays.sort(rollKeeper);
+			int BestSum = rollKeeper[3] + rollKeeper[2] + rollKeeper[1];
+			return BestSum;
 		}
 		
 		static void RollAllDices(Dice[] AllDices) {

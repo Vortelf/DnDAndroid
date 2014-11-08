@@ -8,8 +8,9 @@ public class EmptyFunctional {
 			for(int cnt = 0; cnt < CharacterSkills.length; cnt++)
 				if(CharacterSkills[cnt].SkillName == SkillArr[i])
 					if(SkillsSet < SkillCount) {
-						CharacterSkills[cnt].isMain(true); SkillsSet++;}
-					else return;
+						if(CharacterSkills[cnt].MainSkill != true){
+							CharacterSkills[cnt].isMain(true); SkillsSet++;}
+						} else return;
 			i++;
 		}
 	}

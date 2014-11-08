@@ -4,7 +4,6 @@ public class Monk extends Classes {
 	
 	public Monk(AbilityModifiers AM, String[] SkillArr) {
 		super(AM);
-		
 		MonkSkills = new Skill[] {
 			new Skill("Acrobatics"),
 			new Skill("Athletics"),
@@ -16,6 +15,7 @@ public class Monk extends Classes {
 		MainSkillCount = 2;
 		HitDice = new Dice(8);
 		HitPoints = HitDice.getDice_type() + AM.CONMod;
+		PrimaryStatus = "DEX";
 		this.initSavingThrows();
 		this.MainThrow("STR", true);
 		this.MainThrow("DEX", true);

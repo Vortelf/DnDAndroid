@@ -6,12 +6,12 @@ public class Barbarian extends Classes{
 	public Barbarian(AbilityModifiers AM, String[] SkillArr) {
 		super(AM);
 		BarbarianSkills = new Skill[] {
-				new Skill("AnimalHandling"),
-				new Skill("Athletics"),
-				new Skill("Intimidation"),
-				new Skill("Nature"),
-				new Skill("Perception"),
-				new Skill("Survival"),
+			new Skill("AnimalHandling"),
+			new Skill("Athletics"),
+			new Skill("Intimidation"),
+			new Skill("Nature"),
+			new Skill("Perception"),
+			new Skill("Survival")
 		};
 		MainSkillCount = 2;
 		HitDice = new Dice(12);
