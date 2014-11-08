@@ -36,8 +36,9 @@ public class Character {
 		Stats.addBonus(Race.BonusST);
 		System.out.println("STR Check ->" + Stats.Strength);
 		AM = new AbilityModifiers(Stats);
+		String[] SK ={"Nature","Survival"};
 		
-		Class = new Barbarian(AM);
+		Class = new Barbarian(AM,SK);
 	}
 	
 	

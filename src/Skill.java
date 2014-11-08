@@ -29,11 +29,22 @@ public class Skill {
 			this.SkillVal = AbMod;
 	}
 	
-	public void isMain(boolean Main) {
-		this.MainSkill = Main;
-		System.out.println("Test!" + this.MainSkill);
+	public Skill(String SkillName) {
+		this.SkillName = SkillName;
+		SkillVal = 0;
+		MainSkill = false;
 	}
 	
+	public Skill() {
+		SkillName = "";
+		SkillVal = 0;
+		MainSkill = false;
+	}
+	
+	public void isMain(boolean Main) {
+		this.MainSkill = Main;
+		System.out.println("MainSkill ->" + this.SkillName);
+	}
 
 //		public int Acrobatics; 
 //		public int AnimalHandling;
@@ -101,4 +112,4 @@ public class Skill {
 //				case "Survival" : this.Acrobatics += ProfBonus; break;
 //			}
 //		}
-	}
+}
