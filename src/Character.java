@@ -30,7 +30,7 @@ public class Character {
 	
 	public void initCharacter(int STR, int DEX, int CON, int INT, int WIS, int CHA){
 		dX = new Dice(20);
-		Race = new Dwarf();
+		Race = new Tiefling();
 		Stats = new Statuses(STR,DEX,CON,INT,WIS,CHA);
 		System.out.println("STR Check ->" + Stats.Strength);
 		Stats.addBonus(Race.BonusST);
