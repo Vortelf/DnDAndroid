@@ -38,7 +38,7 @@ public class Character {
 		AM = new AbilityModifiers(Stats);
 		String[] SK ={"Survival","Nature","Athletics","Insight"};
 		
-		Class = new Monk(AM,SK);
+		Class = new Paladin(AM,SK);
 	}
 	
 	
