@@ -9,6 +9,7 @@ public class Classes {
 	public int Armor;
 	public AbilityModifiers AM;
 	public Skill[] Skills;
+	int MainSkillCount;
 	
 	public enum AllSkills {
 		Acrobatics,	AnimalHandling,	Arcana,	Athletics, Deception, History, Insight,

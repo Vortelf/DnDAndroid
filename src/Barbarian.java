@@ -2,7 +2,6 @@
 public class Barbarian extends Classes{
 	
 	public Skill[] BarbarianSkills;
-	public int MainSkillCount;
 	
 	public Barbarian(AbilityModifiers AM, String[] SkillArr) {
 		super(AM);
@@ -16,12 +15,13 @@ public class Barbarian extends Classes{
 		};
 		MainSkillCount = 2;
 		HitDice = new Dice(12);
+		HitPoints = HitDice.getDice_type() + AM.CONMod;
 		PrimaryStatus = "STR";
 		this.initSavingThrows();
 		this.MainThrow("STR", true);
 		this.MainThrow("CON", true);
 		this.initSklls();
-		EmptyFunctional.checkSkills(SkillArr, BarbarianSkills);
+		EmptyFunctional.checkSkills(SkillArr, BarbarianSkills, MainSkillCount);
 //		for(int i = 0; i < SkillArr.length; i++ )
 //			for(int cnt = 0; cnt < BarbarianSkills.length; cnt++)
 //			if(BarbarianSkills[cnt].SkillName == SkillArr[i])
