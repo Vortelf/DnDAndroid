@@ -64,21 +64,5 @@ import java.util.Arrays;
 			return Dices;
 		}
 		
-		public static void main(String[] args) {
-			//Dice D20 = new Dice(20);
-			/*Dice[] Dices = new Dice[] {
-				new Dice(4),
-				new Dice(6),
-				new Dice(8),
-				new Dice(10),
-				new Dice(12),
-				new Dice(20),
-				new Dice(100),
-			};*/
-			//System.out.println("Dice d" + D20.getDice_type() );
-			//System.out.println("Rolling d" + D20.getDice_type() + " = " + D20.rollDice());
-			Dice[] Dices = initDices();
-			RollAllDices(Dices);		
-		}
 	}
 	

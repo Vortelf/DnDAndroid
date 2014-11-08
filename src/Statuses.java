@@ -39,7 +39,7 @@ public class Statuses {
 			return Stats;
 		}
 		public void addBonus(Statuses Stats) {
-			System.out.println("STR flat ->" + this.Strength + " STR Bonus->" + Stats.Strength);
+			//System.out.println("STR flat ->" + this.Strength + " STR Bonus->" + Stats.Strength);
 			this.Strength += Stats.Strength;
 			this.Dexterity += Stats.Dexterity;
 			this.Constitution += Stats.Constitution;

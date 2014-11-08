@@ -30,6 +30,6 @@ public class SavingThrow {
 		
 		public void isMain(boolean Main) {
 			this.MainST = Main;
-			System.out.println("Test!" + this.MainST);
+			//System.out.println("Test!" + this.MainST);
 		}
 	}

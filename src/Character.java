@@ -1,4 +1,3 @@
-import java.lang.reflect.Field;
 
 public class Character {
 	public String Name;
@@ -16,6 +15,7 @@ public class Character {
 	
 	
 	public Character() {
+		Name = null;
 		Class = null;
 		Race = null;
 		Background = 0;
@@ -41,46 +41,48 @@ public class Character {
 		Class = new Wizard(AM,SK);
 	}
 	
+	
 	public Races RandomRace() {
-		Races RR;
-		int RND = (int) Math.random()*9 + 1;
+		int RND = (int) ( Math.random()*9 + 1);
+		//System.out.println(RND);
 		switch(RND){ 
-			case 1: return (RR = new Dwarf());
-			case 2: return (RR = new Elf());
-			case 3: return (RR = new Halfling());
-			case 4: return (RR = new Human());
-			case 5: return (RR = new Dragonborn());
-			case 6: return (RR = new Gnome());
-			case 7: String[] BST = {"CON", "WIS"}; return (RR = new HalfElf(BST));
-			case 8: return (RR = new HalfOrc());
-			case 9: return (RR = new Tiefling());
-			default: return (RR = new Human());
+			case 1: return (new Dwarf());
+			case 2: return (new Elf());
+			case 3: return (new Halfling());
+			case 4: return (new Human());
+			case 5: return (new Dragonborn());
+			case 6: return (new Gnome());
+			case 7: String[] BST = {"CON", "WIS"}; return (new HalfElf(BST));
+			case 8: return (new HalfOrc());
+			case 9: return (new Tiefling());
+			default: return (new Human());
 		}
 	}
 	
 	public Classes RandomClass(AbilityModifiers AM, String[] SK) {
-		Classes RC;
-		int RND = (int) Math.random()*12 + 1;
+		int RND = (int) ( Math.random()*12 + 1);
+		//System.out.println(RND);
 		switch(RND){
-		case 1: return (RC = new Barbarian(AM,SK));
-		case 2: return (RC = new Bard(AM,SK));
-		case 3: return (RC = new Cleric(AM,SK));
-		case 4: return (RC = new Druid(AM,SK));
-		case 5: return (RC = new Fighter(AM,SK));
-		case 6: return (RC = new Monk(AM,SK));
-		case 7: return (RC = new Paladin(AM,SK));
-		case 8: return (RC = new Ranger(AM,SK));
-		case 9: return (RC = new Rogue(AM,SK));
-		case 10: return (RC = new Sorcerer(AM,SK));
-		case 11: return (RC = new Warlock(AM,SK));
-		case 12: return (RC = new Wizard(AM,SK));
-		default: return(RC = new Classes(AM));
+			case 1: return (new Barbarian(AM,SK)); 
+			case 2: return (new Bard(AM,SK));
+			case 3: return (new Cleric(AM,SK));
+			case 4: return (new Druid(AM,SK));
+			case 5: return (new Fighter(AM,SK));
+			case 6: return (new Monk(AM,SK));
+			case 7: return (new Paladin(AM,SK));
+			case 8: return (new Ranger(AM,SK));
+			case 9: return (new Rogue(AM,SK));
+			case 10: return (new Sorcerer(AM,SK));
+			case 11: return (new Warlock(AM,SK));
+			case 12: return (new Wizard(AM,SK));
+			default: return(new Classes(AM));
 		}
 	}
 	
-	public Character RandomCharacterGenerator() {
+	public Character RandomCharacterGenerator(String Name) {
 		Dice D6 = new Dice();
 		Character Random = new Character();
+		Random.Name = Name;
 		Random.Race = RandomRace();
 		Random.Stats = new Statuses(D6.RollForStatus(),D6.RollForStatus(),D6.RollForStatus(),
 				D6.RollForStatus(),D6.RollForStatus(),D6.RollForStatus());
@@ -96,10 +98,12 @@ public class Character {
 	
 	public static void main(String[] args) {
 		Character Cha = new Character();
-		Cha = Cha.RandomCharacterGenerator();
-		Cha.Name = "Mycaka";
-		System.out.println(Cha.Name);
-		System.out.println("Check ->" + Cha.Stats.Wisdom + "!");
-		//System.out.println("Check StatBonus work ->" + Cha.Skills.Athletics);
+		Cha = Cha.RandomCharacterGenerator("Mycaka");
+		//Cha.Name = "Mycaka";
+//		System.out.println(Cha.Name);
+//		System.out.println("Check ->" + Cha.Stats.Wisdom + "!");
+//		System.out.println("This is " + Cha.Name + " and he is " + Cha.Race.getClass().getName() + " " + Cha.Class.getClass().getName() + "\n" +
+//			 "He has "	+ Cha.Stats.Strength + "STR, " + Cha.Stats.Dexterity + "DEX.\n");
+//		System.out.println("Check StatBonus work ->" + Cha.Skills.Athletics);
 	}
 }

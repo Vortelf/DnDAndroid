@@ -26,7 +26,7 @@ public class Skill {
 	
 	public void isMain(boolean Main) {
 		this.MainSkill = Main;
-		System.out.println("MainSkill ->" + this.SkillName);
+		//System.out.println("MainSkill ->" + this.SkillName);
 	}
 
 	
