@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Char"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    tools:context="vortelf.dnd.RandomCharActivity" >
+    
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+	<RelativeLayout
+	    android:id="@+id/RandomScroll"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" >
+	    
+	    <EditText
+	        android:id="@+id/inputCharName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:inputType="textCapSentences"
+	        android:gravity="center_horizontal"
+	        android:hint="@string/inputCharName" />
+	
+	    <Button
+	        android:id="@+id/RandomButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="50dp"
+	        android:gravity="center_horizontal"
+	        android:padding="20dp"
+	        android:text="@string/random_button" />
+
+	<RelativeLayout
+	    android:id="@+id/CharChar"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/RandomButton"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:orientation="vertical" >
+
+	    <TextView
+	        android:id="@+id/CharName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="20dp"
+	        android:textSize="22sp"
+	        android:text="TextView" />
+	    
+	    <TextView
+	        android:id="@+id/RaceNClass"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/CharName"
+			android:gravity="center_horizontal"
+			android:layout_centerHorizontal="true"
+			android:textSize="20sp"
+			android:textStyle="bold"
+	        android:text="TextView" />
+	
+	    <TextView
+	        android:id="@+id/CharStats"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/RaceNClass"
+	        android:textSize="18sp"
+	        android:text="TextView" />
+	    
+	    <TextView
+	        android:id="@+id/AbiMod"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/CharStats"
+	        android:layout_alignParentRight="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="25dp"
+	        android:textSize="18sp"
+	        android:text="TextView" />
+	    
+
+	    </RelativeLayout>
+	    
+	    <TextView
+	        android:id="@+id/Roller"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/CharChar"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="104dp"
+	        android:text="TextView"
+	        android:textSize="50sp" />
+	
+
+	
+	    <Button
+	        android:id="@+id/SwitchActivity"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/Roller"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="41dp"
+	        android:text="Button" />
+		
+	</RelativeLayout>
+</ScrollView>
+</RelativeLayout>

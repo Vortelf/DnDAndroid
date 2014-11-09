@@ -1,0 +1,165 @@
+
+public class Character {
+	public String Name;
+	public int Class;
+	public int Race;
+	public int Background;
+	public int Level;
+	public int Experience;
+	public int Alignment;
+	
+	public int ProficiencyBonus;
+	
+	public int Armor;
+	public int Speed;
+	public int Initiative;
+	public Dice HitDice;
+	public int HitPoints;
+	public int TempHitPoints;
+	
+	
+	static class Statuses {
+		public static int Strength;
+		public static int Dexterity;
+		public static int Constitution;
+		public static int Intelligence;
+		public static int Wisdom;
+		public static int Charisma;
+		
+		public Statuses(int STR, int DEX, int CON, int INT, int WIS, int CHA) {
+			Statuses.Strength = STR;
+			Statuses.Dexterity = DEX;
+			Statuses.Constitution = CON;
+			Statuses.Intelligence = INT;
+			Statuses.Wisdom = WIS;
+			Statuses.Charisma = CHA;
+		}
+
+		public int getStrength() {
+			return Strength;
+		}
+
+		public void setStrength(int strength) {
+			Strength = strength;
+		}
+	}
+	
+	
+	static class AbilityModifiers {
+		public static int STRMod;
+		public static int DEXMod;
+		public static int CONMod;
+		public static int INTMod;
+		public static int WISMod;
+		public static int CHAMod;
+		
+		public AbilityModifiers() {
+			AbilityModifiers.STRMod = (Statuses.Strength - 10) / 2;
+			AbilityModifiers.DEXMod = (Statuses.Dexterity - 10) / 2;
+			AbilityModifiers.CONMod = (Statuses.Constitution - 10) / 2;
+			AbilityModifiers.INTMod = (Statuses.Intelligence - 10) / 2;
+			AbilityModifiers.WISMod = (Statuses.Wisdom - 10) / 2;
+			AbilityModifiers.CHAMod = (Statuses.Charisma - 10) / 2;
+		}
+	}
+	
+	
+	class SavingThrow {
+		public String Stat;
+		public boolean MainST = false;
+		public int ST;
+		
+		public SavingThrow(String StatName, int AbMod, int ProfBonus) {
+			this.Stat = StatName;
+			if(MainST == true)
+				this.ST = AbMod + ProfBonus;
+			else
+				this.ST = AbMod;
+		}
+		
+		public void isMain(boolean Main) {
+			this.MainST = Main;
+			System.out.println("Test!" + this.MainST);
+		}
+	}
+	
+	
+	static class Skill {
+		public static int Acrobatics; 
+		public static int AnimalHandling;
+		public static int Arcana;
+		public static int Athletics;
+		public static int Deception;
+		public static int History;
+		public static int Insight;
+		public static int Intimidation;
+		public static int Investigation;
+		public static int Medicine;
+		public static int Nature;
+		public static int Perception;
+		public static int Performance;
+		public static int Persuasion;
+		public static int Religion;
+		public static int SleightOfHand;
+		public static int Stealth;
+		public static int Survival;
+
+		public Skill(int STR, int DEX, int CON, int INT, int WIS, int CHA) {
+			Skill.Acrobatics = DEX; 
+			Skill.AnimalHandling = WIS;
+			Skill.Arcana = INT;
+			Skill.Athletics = STR;
+			Skill.Deception = CHA;
+			Skill.History = INT;
+			Skill.Insight = WIS;
+			Skill.Intimidation = CHA;
+			Skill.Investigation = INT;
+			Skill.Medicine = WIS;
+			Skill.Nature = INT;
+			Skill.Perception = WIS;
+			Skill.Performance = CHA;
+			Skill.Persuasion = CHA;
+			Skill.Religion = INT;
+			Skill.SleightOfHand = DEX;
+			Skill.Stealth = DEX;
+			Skill.Survival = WIS;
+			System.out.println("Deception = " + this.Deception + " Athletics = " + this.Athletics);
+		}
+	}
+	
+	public Character() {
+		Statuses Stats = new Statuses(0, 0, 0, 0, 0, 0);
+		AbilityModifiers AM = new AbilityModifiers();
+		SavingThrow[] Throws = new SavingThrow[] {
+				new SavingThrow("STR",Character.AbilityModifiers.STRMod,ProficiencyBonus),
+				new SavingThrow("DEX",Character.AbilityModifiers.DEXMod,ProficiencyBonus),
+				new SavingThrow("CON",Character.AbilityModifiers.CONMod,ProficiencyBonus),
+				new SavingThrow("INT",Character.AbilityModifiers.INTMod,ProficiencyBonus),
+				new SavingThrow("WIS",Character.AbilityModifiers.WISMod,ProficiencyBonus),
+				new SavingThrow("CHA",Character.AbilityModifiers.CHAMod,ProficiencyBonus),
+		};
+		Skill Skills = new Skill(Character.AbilityModifiers.STRMod,
+				 Character.AbilityModifiers.DEXMod,
+				 Character.AbilityModifiers.CONMod,
+				 Character.AbilityModifiers.INTMod,
+				 Character.AbilityModifiers.WISMod,
+				 Character.AbilityModifiers.CHAMod
+				 );
+	}
+
+
+	
+	public static void main(String[] args) {
+		Character Cha = new Character();
+		Dice d20 = new Dice(20);
+		//System.out.println(d20.rollDice());
+		Cha.Name = "Mycaka";
+		System.out.println(Cha.Name);
+		java.lang.Class<? extends Character> temp = Cha.getClass();
+		
+		//System.out.println(Cha.Skills.getSkill("Stealth"));
+		//cha.Stauses.setSTR(d20.rollDice());
+		
+		//cha.ConstructSkills(1, 2, 3, 4, 5, 6);
+	}
+}

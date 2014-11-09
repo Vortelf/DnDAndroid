@@ -1,0 +1,57 @@
+package vortelf.dnd;
+
+import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class CustomCharActivity extends ActionBarActivity implements OnClickListener {
+	
+	EditText CharacterName;
+	EditText CharacterRace;
+	EditText CharacterClass;
+	
+	Button Submit;
+	
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.activity_custom_char);
+		Submit = (Button) findViewById(R.id.CustomCharSubmit);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		//getMenuInflater().inflate(R.menu., menu)
+		getMenuInflater().inflate(R.menu.global, menu);
+		return true;
+	}
+
+	@Override	
+	public boolean onOptionsItemSelected(MenuItem item){
+		Intent AboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
+		Intent CustomCharIntent = new Intent(getApplicationContext(), CustomCharActivity.class);
+		Intent RandomCharIntent = new Intent(getApplicationContext(), RandomCharActivity.class);
+		switch(item.getItemId()){
+			case R.id.action_random_catacter : startActivityForResult(RandomCharIntent, 0);break;
+			case R.id.action_custom_catacter : startActivityForResult(CustomCharIntent, 0);break;
+			case R.id.action_about : startActivityForResult(AboutIntent, 0);break;
+		}
+	    return true;
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+}

@@ -1,0 +1,77 @@
+package vortelf.dnd;
+
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class RandomCharActivity extends ActionBarActivity implements OnClickListener{
+	
+	TextView CharName;
+	TextView DiceRoll;
+	TextView Stats;
+	EditText inputCharName;
+	Button Button;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.activity_random_char);
+		DiceRoll = (TextView) findViewById(R.id.Roller);
+		CharName = (TextView) findViewById(R.id.CharName);
+		Stats = (TextView) findViewById(R.id.CharStats);
+		Button = (Button) findViewById(R.id.RandomButton);
+		inputCharName = (EditText) findViewById(R.id.inputCharName);
+		Button.setOnClickListener(this);
+	}
+	
+	public void CharacterCreate() {
+		Character Cha = new Character();
+		String Name = inputCharName.getText().toString();
+		Cha = Cha.RandomCharacterGenerator(Name);
+		Dice D20 = new Dice(20);
+		DiceRoll.setText(String.valueOf(D20.rollDice()));
+		CharName.setText(Cha.Name);
+		Stats.setText(Cha.Stats.Strength + " STR " + Cha.Stats.Dexterity + " DEX "
+				+ Cha.Stats.Constitution + " CON \n" + Cha.Stats.Intelligence + " INT "
+				+ Cha.Stats.Wisdom + " WIS " + Cha.Stats.Charisma + " CHA");
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.random_char, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+		if(v.getId() == Button.getId()) {
+			CharacterCreate();
+			//TODO DO on Button Click
+		}
+	}
+
+}

@@ -1,0 +1,171 @@
+public class Character {
+	public String Name;
+	public int Class;
+	public Races Race;
+	public int Background;
+	public int Level;
+	public int Experience;
+	public int Alignment;
+	public Dice dX;
+	
+	public int ProficiencyBonus;
+	
+	public int Armor;
+	public int Speed;
+	public int Initiative;
+	public Dice HitDice;
+	public int HitPoints;
+	public int TempHitPoints;
+	
+	public Statuses Stats;
+	public AbilityModifiers AM;
+	public SavingThrow[] Throws;
+	public Skill Skills;
+	
+	
+	public class AbilityModifiers {
+		public Statuses STAT;
+		public int STRMod;
+		public int DEXMod;
+		public int CONMod;
+		public int INTMod;
+		public int WISMod;
+		public int CHAMod;
+		
+		public AbilityModifiers(Statuses Stats) {
+			STAT = Stats;
+			this.STRMod = (STAT.Strength - 10) / 2;
+			this.DEXMod = (STAT.Dexterity - 10) / 2;
+			this.CONMod = (STAT.Constitution - 10) / 2;
+			this.INTMod = (STAT.Intelligence - 10) / 2;
+			this.WISMod = (STAT.Wisdom - 10) / 2;
+			this.CHAMod = (STAT.Charisma - 10) / 2;
+		}
+
+	}
+	
+	
+	public class SavingThrow {
+		//private final AbilityModifiers AbiMod;
+		public String Stat;
+		public boolean MainST = false;
+		public int ST;
+		
+		public SavingThrow(String StatName, int AbMod, int ProfBonus) {
+			this.Stat = StatName;
+			if(MainST == true)
+				this.ST = AbMod + ProfBonus;
+			else
+				this.ST = AbMod;
+		}
+		
+		public void isMain(boolean Main) {
+			this.MainST = Main;
+			System.out.println("Test!" + this.MainST);
+		}
+	}
+	
+	
+	public class Skill {
+		public int Acrobatics; 
+		public int AnimalHandling;
+		public int Arcana;
+		public int Athletics;
+		public int Deception;
+		public int History;
+		public int Insight;
+		public int Intimidation;
+		public int Investigation;
+		public int Medicine;
+		public int Nature;
+		public int Perception;
+		public int Performance;
+		public int Persuasion;
+		public int Religion;
+		public int SleightOfHand;
+		public int Stealth;
+		public int Survival;
+
+		public Skill(int STR, int DEX, int CON, int INT, int WIS, int CHA) {
+			this.Acrobatics = DEX; 
+			this.AnimalHandling = WIS;
+			this.Arcana = INT;
+			this.Athletics = STR;
+			this.Deception = CHA;
+			this.History = INT;
+			this.Insight = WIS;
+			this.Intimidation = CHA;
+			this.Investigation = INT;
+			this.Medicine = WIS;
+			this.Nature = INT;
+			this.Perception = WIS;
+			this.Performance = CHA;
+			this.Persuasion = CHA;
+			this.Religion = INT;
+			this.SleightOfHand = DEX;
+			this.Stealth = DEX;
+			this.Survival = WIS;
+		}
+	}
+	
+	
+	public Character() {
+		Class = 0;
+		Race = null;
+		Background = 0;
+		Level = 0;
+		Experience = 0;
+		Alignment = 0;
+		ProficiencyBonus = 0;
+		
+		Armor = 0;
+		Speed = 0;
+		Initiative = 0;
+		HitDice = new Dice();
+		HitPoints = 0;
+		TempHitPoints = 0;
+		Stats = null;
+		AM  = null;
+		Throws  = null;
+		Skills  = null;
+	}
+	
+	
+	public void initCharacter(int STR, int DEX, int CON, int INT, int WIS, int CHA){
+		dX = new Dice(20);
+		Race = new Dwarf();
+		Stats = new Statuses(STR,DEX,CON,INT,WIS,CHA);
+		Stats.addBonus(Race.BonusST);
+		AM = new AbilityModifiers(Stats);
+		Throws = new SavingThrow[] {
+				new SavingThrow("STR",AM.STRMod,ProficiencyBonus),
+				new SavingThrow("DEX",AM.DEXMod,ProficiencyBonus),
+				new SavingThrow("CON",AM.CONMod,ProficiencyBonus),
+				new SavingThrow("INT",AM.INTMod,ProficiencyBonus),
+				new SavingThrow("WIS",AM.WISMod,ProficiencyBonus),
+				new SavingThrow("CHA",AM.CHAMod,ProficiencyBonus),
+		};
+		Skills = new Skill(AM.STRMod,AM.DEXMod,AM.CONMod,
+								AM.INTMod,AM.WISMod,AM.CHAMod);
+		System.out.println("Check ->!" + Stats.Wisdom);
+	}
+	
+	
+	public Character RandomCharacterGenerator() {
+		Dice D20 = new Dice(20);
+		Character Random = new Character();
+		Random.initCharacter(D20.rollDice(),D20.rollDice(),D20.rollDice(),
+				D20.rollDice(),D20.rollDice(),D20.rollDice());
+
+		return Random;
+	}
+	
+	
+	public static void main(String[] args) {
+		Character Cha = new Character();
+		Cha = Cha.RandomCharacterGenerator();
+		Cha.Name = "Mycaka";
+		System.out.println(Cha.Name);
+		System.out.println("Check ->" + Cha.Stats.Wisdom + "!");
+	}
+}

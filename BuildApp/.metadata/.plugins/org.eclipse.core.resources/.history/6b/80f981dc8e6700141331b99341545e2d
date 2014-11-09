@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Char"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="vortelf.dnd.RandomCharActivity" >
+    
+    <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- Search, should appear as action button -->
+    <item android:id="@+id/action_search"
+          android:icon="@drawable/ic_action_search"
+          android:title="@string/action_search"
+          android:showAsAction="ifRoom" />
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          android:showAsAction="never" />
+	</menu>
+
+    <EditText
+        android:id="@+id/inputCharName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:hint="@string/inputCharName" />
+
+    <Button
+        android:id="@+id/RandomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="@string/random_button" />
+
+    <TextView
+        android:id="@+id/CharName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RandomButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/CharStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CharName"
+        android:layout_centerHorizontal="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/Roller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CharStats"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"
+        android:text="TextView"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/ScrollExtend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Roller"
+        android:layout_centerHorizontal="true"
+        android:text="@string/extend"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/SwitchActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CharStats"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="Button" />
+
+</RelativeLayout>
