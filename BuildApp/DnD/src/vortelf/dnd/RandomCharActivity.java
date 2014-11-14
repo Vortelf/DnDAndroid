@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+@SuppressWarnings("unused")
 public class RandomCharActivity extends ActionBarActivity implements OnClickListener{
 	
 	TextView CharName;
@@ -31,11 +34,19 @@ public class RandomCharActivity extends ActionBarActivity implements OnClickList
 	EditText inputCharName;
 	Button Button;
 	//Button Switch;
+	static boolean Active;
+	
+	static final String STATE_SCORE = "playerScore";
+	static final String STATE_LEVEL = "playerLevel";
+	int mCurrentScore;
+	int mCurrentLevel;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_random_char);
+		Active = true;
 		//DiceRoll = (TextView) findViewById(R.id.Roller);
 		CharName = (TextView) findViewById(R.id.CharName);
 		Level = (TextView) findViewById(R.id.Level);
@@ -44,6 +55,16 @@ public class RandomCharActivity extends ActionBarActivity implements OnClickList
 		RaceNClass = (TextView) findViewById(R.id.RaceNClass);
 		SkillsFH = (TextView) findViewById(R.id.CharSkillsFH);
 		SkillsSH = (TextView) findViewById(R.id.CharSkillsSH);
+		
+	
+		
+		if (savedInstanceState != null) {
+	        // Restore value of members from saved state
+	        int mCurrentScore = savedInstanceState.getInt(STATE_SCORE);
+	        int mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);
+	    } 
+
+		
 		
 		Button = (Button) findViewById(R.id.RandomButton);
 		//Switch = (Button) findViewById(R.id.SwitchActivity);
@@ -65,6 +86,22 @@ public class RandomCharActivity extends ActionBarActivity implements OnClickList
 		Button.setOnClickListener(this);
 		//Switch.setOnClickListener(this);
 	
+	}
+	
+	@Override
+	public void onRestoreInstanceState(Bundle savedInstanceState) {
+	    // Always call the superclass so it can restore the view hierarchy
+	    super.onRestoreInstanceState(savedInstanceState);
+	   
+	    // Restore state members from saved instance
+	    mCurrentScore = savedInstanceState.getInt(STATE_SCORE);
+	    mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);
+	}
+	
+
+	public void onStart(Bundle savedInstanceState){
+		super.onStart();
+		onRestoreInstanceState(savedInstanceState); 
 	}
 	
 	public void CharacterCreate() {
@@ -96,6 +133,7 @@ public class RandomCharActivity extends ActionBarActivity implements OnClickList
 			STRINGA += Cha.Class.Skills[i].SkillName + " " + Cha.Class.Skills[i].SkillVal + "\n";
 		SkillsSH.setText(STRINGA);
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,16 +145,18 @@ public class RandomCharActivity extends ActionBarActivity implements OnClickList
 
 	@Override	
 	public boolean onOptionsItemSelected(MenuItem item){
-		Intent AboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
-		Intent CustomCharIntent = new Intent(getApplicationContext(), CustomCharActivity.class);
-		Intent RandomCharIntent = new Intent(getApplicationContext(), RandomCharActivity.class);
+		Intent AboutIntent = new Intent(this, AboutActivity.class);
+		Intent CustomCharIntent = new Intent(this, CustomCharActivity.class);
+		//Intent RandomCharIntent = new Intent(this, RandomCharActivity.class);
 		switch(item.getItemId()){
-			case R.id.action_random_catacter : startActivityForResult(RandomCharIntent, 0);break;
-			case R.id.action_custom_catacter : startActivityForResult(CustomCharIntent, 0);break;
-			case R.id.action_about : startActivityForResult(AboutIntent, 0);break;
+			case R.id.action_custom_catacter : if(CustomCharActivity.Active) setResult(RESULT_OK, CustomCharIntent); else startActivity(CustomCharIntent);break;
+			case R.id.action_about : setResult(RESULT_OK, AboutIntent); finish();break;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
 	    return true;
 	}
+	
 	
 	@Override
 	public void onClick(View v) {
@@ -130,6 +170,10 @@ public class RandomCharActivity extends ActionBarActivity implements OnClickList
 			//Intent intent = new Intent(this, MainActivity.class); 
 			//startActivity(intent);
 		//}
+	}
+	public void onStop(){
+		super.onStop();
+		Active = false;
 	}
 
 }

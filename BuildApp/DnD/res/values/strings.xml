@@ -30,4 +30,13 @@
     <string name="inCharacterName">Enter Character Name</string>
     <string name="inCharacterClass">Enter Character Class</string>
     <string name="inCharacterRace">Enter Character Race</string>
+    
+ 
+    <string name="stat_dropdown_def">Rolls</string>
+ 
+    <string-array name="stat_dropdown">
+
+    </string-array>
+ 
+    
 </resources>

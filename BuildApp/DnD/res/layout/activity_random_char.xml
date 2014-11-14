@@ -3,12 +3,13 @@
     android:id="@+id/Char"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    
     tools:context="vortelf.dnd.RandomCharActivity" >
     
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
     
 	<RelativeLayout
 	    android:id="@+id/RandomScroll"
@@ -36,6 +37,7 @@
 	        android:gravity="center_horizontal"
 	        android:padding="20dp"
 	        android:text="@string/random_button" />
+	    
 
 	<RelativeLayout
 	    android:id="@+id/CharChar"
@@ -111,7 +113,7 @@
 	        android:layout_marginTop="20dp"
 	        android:layout_marginLeft="10dp"
 		    android:layout_marginRight="10dp"
-		    android:layout_marginBottom="20dp"
+		    android:layout_marginBottom="50dp"
 		    android:orientation="vertical" 
 		    android:background="@drawable/border"
 		    android:visibility="invisible">
@@ -140,7 +142,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:layout_alignBaseline="@+id/CharSkillsFH"
-	        android:layout_alignParentRight="true"
+	        	android:layout_alignParentRight="true"
 	            android:textSize="18sp"
 	        	android:text="" />
 
