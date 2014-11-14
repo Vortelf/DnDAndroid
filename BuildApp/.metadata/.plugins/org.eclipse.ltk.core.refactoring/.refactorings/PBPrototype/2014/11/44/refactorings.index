@@ -1,7 +1,0 @@
-1414836656612	Extract local variable 'dx2'
-1414836667013	Inline local variable 'dx2'
-1414837238642	Encapsulate field 'dice_type'
-1414837635381	Convert local variable 'd20' to field
-1414837671294	Convert local variable 'd20' to field
-1414837799472	Encapsulate field 'Dice_type'
-1414837850031	Convert local variable 'd20' to field
